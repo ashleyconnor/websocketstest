@@ -8,10 +8,6 @@
 
   onMount(() => messageInput.focus());
 
-  messageStore.subscribe(value => {
-    messages = value;
-  });
-
   const submitMessage = () => {
     sendMessage(messageText);
     messageText = "";
@@ -24,7 +20,7 @@
 </script>
 
 <ul>
-  {#each messages as message}
+  {#each $messageStore as message}
     <li>{message}</li>
   {/each}
 </ul>
